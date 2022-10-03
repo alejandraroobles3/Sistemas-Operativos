@@ -1,4 +1,4 @@
-p=True
+p=True 
 while p==True:   
     vect=[
         {'tam':'0','dis':'','arc':'','id':'0'},
