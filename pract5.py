@@ -68,16 +68,41 @@ while p==True:
                             r=int(h['id']) 
             vect[r]['arc']=j['tam'] 
             vect[r]['dis']='2'               
-        print(vect,"\n")
         for y in vect:
             if y['tam']!='0':
-                print("Archivo: ",y['arc'])
-                print("Espacio en donde se almaceno: ",y['tam'])
+                if y['dis']=='2':
+                    print("Archivo: ",y['arc'])
+                    print("Espacio en donde se almaceno: ",y['tam'])
                                 
 
     elif al=='3':
-        print()
         #se hace desde la posicion en la que se quedo 
+        tam=0
+        tam2=0
+        t=0 
+        for c in v:
+            i=-1
+            for r in range(t,b2):
+                h=vect[r]
+                if int(h['tam']) >= int(j['tam']):
+                    if h['dis']=='1': 
+                        tam=int(h['tam'])+int(c['tam'])
+                        if tam2==0:
+                            tam2=int(h['tam'])+int(c['tam'])
+                        elif tam > tam2:
+                            tam2=tam
+                            i=r+1
+            if i != -1:
+                vect[i]['arc']=c['tam'] 
+                vect[i]['dis']='2'
+                t=int(vect[i]['id'])
+        
+        for y in vect:
+            if y['tam']!='0':
+                if y['dis']=='2':
+                    print("Archivo: ",y['arc'])
+                    print("Espacio en donde se almaceno: ",y['tam'])
+
 
     salida=input("Desea ejecutarlo de nuevo? \n 1. Si \n 2. No\n: ")
     if salida=='2':
