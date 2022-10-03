@@ -80,23 +80,28 @@ while p==True:
         tam=0
         tam2=0
         t=0 
+        i=0
         for c in v:
-            i=-1
-            for r in range(t,b2):
+            tam2=0
+            print('primer for',b2)
+            for r in range(0,b2):
+                print('segundo for')
                 h=vect[r]
-                if int(h['tam']) >= int(j['tam']):
+                print(h)
+                tam2=0
+                if int(h['tam']) >= int(c['tam']):
                     if h['dis']=='1': 
                         tam=int(h['tam'])+int(c['tam'])
                         if tam2==0:
+                            print('llegue tam2')
                             tam2=int(h['tam'])+int(c['tam'])
                         elif tam > tam2:
+                            print('llegue')
                             tam2=tam
-                            i=r+1
-            if i != -1:
-                vect[i]['arc']=c['tam'] 
-                vect[i]['dis']='2'
-                t=int(vect[i]['id'])
-        
+                            i=r
+            vect[i]['arc']=c['tam'] 
+            vect[i]['dis']='2'
+        print(vect)
         for y in vect:
             if y['tam']!='0':
                 if y['dis']=='2':
