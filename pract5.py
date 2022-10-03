@@ -100,7 +100,7 @@ while p==True:
                             tam2=tam
                             i=r
             vect[i]['arc']=c['tam'] 
-            vect[i]['dis']='2'
+            vect[i]['dis']='2' 
         print(vect)
         for y in vect:
             if y['tam']!='0':
